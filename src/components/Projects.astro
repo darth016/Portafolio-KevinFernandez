@@ -2,6 +2,8 @@
 import NextJS from './icons/NextJS.astro';
 import Tailwind from './icons/Tailwind.astro';
 import React from './icons/React.astro';
+import GitHub from './icons/GitHub.astro';
+import Vercel from './icons/Vercel.astro';
 const TAGS = {
     NEXT: {
         name: 'Next.JS',
@@ -17,22 +19,35 @@ const TAGS = {
         name: 'React',
         class: 'bg-black text-white',
         icon: React,
+    },
+    VERCEL: {
+        name: 'Vercel',
+        class: 'bg-black text-white',
+        icon: Vercel,
+        link: 'https://olympus-scanlation.vercel.app',
+    },
+    GITHUB: {
+        name: 'Github',
+        class: 'bg-black text-white',
+        icon: GitHub,
+        link: 'https://github.com/darth016/Olympus-Scanlation',
     }
 }
 const PROJECTS = [
     {
-        title: 'SVGL - A beatiful library with SVG logos',
-        description: 'A beautiful library with SVG logos',
-        link: 'https://svgl.vercel.app/',
-        github: 'https://www.github.com/pheralb/svgl',
-        image: '/projects/svgl.webp',
+        title: 'Clone de Olympus Scanlation',
+        description: 'Este fue un proyecto hecho solamente para demostrar mis conocimientos y habilidades en la creación de paginas web del estilo manhwa/manhua y novelas. ',
+        link: 'https://olympus-scanlation.vercel.app/',
+        github: 'https://github.com/darth016/Olympus-Scanlation',
+        image: '/projects/olympus.webp',
         tags: [TAGS.NEXT, TAGS.TAILWIND, TAGS.REACT],
+        tags2: [TAGS.VERCEL, TAGS.GITHUB],
     },
 ]
 ---
 
 {
-    PROJECTS.map(({ image, title, description, tags }) => (
+    PROJECTS.map(({ image, title, description, tags, tags2 }) => (
         <article>
             <h3 class="text-2xl font-semibold text-yellow-200 mb-2">{title}</h3>
             <p class="text-lg mb-4 text-pretty">{description}</p>
@@ -43,6 +58,14 @@ const PROJECTS = [
                             <tag.icon class="size-4" />
                             {tag.name}
                         </span>
+                    </li>
+                ))}
+                {tags2.map(tag => (
+                    <li class="">
+                        <a href={tag.link} class={`flex gap-x-2 rounded-full text-sm ${tag.class} py-2 px-1 `}>
+                            <tag.icon class="size-4" />
+                            {tag.name}
+                        </a>
                     </li>
                 ))}
             </ul>

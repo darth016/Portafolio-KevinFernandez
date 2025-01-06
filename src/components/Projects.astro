@@ -11,7 +11,7 @@ const TAGS = {
         icon: NextJS,
     },
     TAILWIND: {
-        name: 'Tailwind CSS',
+        name: 'Tailwind',
         class: 'bg-[#003159] text-white',
         icon: Tailwind,
     },
@@ -24,31 +24,33 @@ const TAGS = {
         name: 'Vercel',
         class: 'bg-black text-white',
         icon: Vercel,
-        link: 'https://olympus-scanlation.vercel.app',
-    },
-    GITHUB: {
-        name: 'Github',
-        class: 'bg-black text-white',
-        icon: GitHub,
-        link: 'https://github.com/darth016/Olympus-Scanlation',
     }
 }
 const PROJECTS = [
     {
-        title: 'Clone de Olympus Scanlation',
+        title: 'Olympus Scanlation Clone',
         description: 'Este fue un proyecto hecho solamente para demostrar mis conocimientos y habilidades en la creación de paginas web del estilo manhwa/manhua y novelas. ',
         link: 'https://olympus-scanlation.vercel.app/',
         github: 'https://github.com/darth016/Olympus-Scanlation',
         image: '/projects/olympus.webp',
         tags: [TAGS.NEXT, TAGS.TAILWIND, TAGS.REACT],
-        tags2: [TAGS.VERCEL, TAGS.GITHUB],
+        tags2: [TAGS.VERCEL],
     },
+    {
+        title: 'AnimeFLV Clone',
+        description: 'Este sitio web es un Clone de la pagina AnimeFLV, en diseño es igual. Sin embargo en cuestion de rendimiento, backend, Responsive Design, etc.',
+        link: 'https://clone-anime-flv.vercel.app/',
+        github: 'https://github.com/darth016/Clone-AnimeFLV',
+        image: '/projects/animeflv.webp',
+        tags: [TAGS.NEXT, TAGS.TAILWIND, TAGS.REACT],
+        tags2: [TAGS.VERCEL],
+    }
 ]
 ---
 
 {
-    PROJECTS.map(({ image, title, description, tags, tags2 }) => (
-        <article>
+    PROJECTS.map(({ image, title, description, tags, tags2, link }) => (
+        <article class="mt-7">
             <h3 class="text-2xl font-semibold text-yellow-200 mb-2">{title}</h3>
             <p class="text-lg mb-4 text-pretty">{description}</p>
             <ul class="flex gap-x-2 flex-row mb-2">
@@ -62,14 +64,16 @@ const PROJECTS = [
                 ))}
                 {tags2.map(tag => (
                     <li class="">
-                        <a href={tag.link} class={`flex gap-x-2 rounded-full text-sm ${tag.class} py-2 px-1 `}>
+                        <div class={`flex gap-x-2 rounded-full text-sm ${tag.class} py-2 px-1 `}>
                             <tag.icon class="size-4" />
                             {tag.name}
-                        </a>
+                        </div>
                     </li>
                 ))}
             </ul>
-            <img class="rounded shadow-2xl shadow-white/10" src={image} alt={`Captura de pantalla del proyecto ${image}`} />
+            <a href={link}>
+                <img class="rounded hover:scale-[10px] shadow-xl shadow-white/10" src={image} alt={`Captura de pantalla del proyecto ${image}`} />
+            </a>
         </article>
     ))
 }

@@ -1,13 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Badge from '../components/Badge.astro';
 import SectionContainer from '../components/SectionContainer.astro';
 import SocialPill from '../components/SocialPill.astro';
-import LinkedInIcon from '../components/icons/LinkedIn.astro';
 import GitHubIcon from '../components/icons/GitHub.astro';
 import MailIcon from '../components/icons/Mail.astro';
+import DiscordIcon from '../components/icons/Discord.astro';
 import CodeIcon from '../components/icons/Code.astro';
 import Projects from '../components/Projects.astro';
+import PriceIcon from '../components/icons/PriceIcon.astro';
+import Price from '../components/Price.astro';
 ---
 
 <Layout title="Porfolio de Kevin Fernandez - Desarrollador y Programador Web." description="Sumérgete en mi portafolio, donde destaco proyectos significativos que he desarrollado. Desde aplicaciones web interactivas hasta soluciones backend robustas, cada proyecto es una representación de mi compromiso con la excelencia técnica.">
@@ -15,14 +16,14 @@ import Projects from '../components/Projects.astro';
 		<SectionContainer class="py-44 pb-24">
 			<h1 class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex justify-center flex-row gap-x-4 pb-6 lg:pb-10">Hey, soy Kevin<a href="https://www.linkedin.com/in/kevin-fernandez-26570a214/" target="_blank" rel="noopener" class="flex justify-center items-center"></a></h1>
 			<h2 class="text-xl lg:text-2xl text-wrap max-w-[700px]"><span class="text-yellow-200/90">Desarrollador Web</span>.<span class="text-blue-200/90"> De Argentina</span>. <span class="opacity-75">Especializado en crear webs personalizadas.</span></h2>
-			<nav class="flex gap-4 mt-8 flex-wrap">
-				<SocialPill href="https://www.linkedin.com/in/kevin-fernandez">
-					<LinkedInIcon class="size-4 md:size-6" />
-					Linkedin
-				</SocialPill>
+			<nav class="flex gap-4 mt-8 flex-wrap justify-center">
 				<SocialPill href="https://https://github.com/darth016">
 					<GitHubIcon class="size-4 md:size-6"/>
 					GitHub
+				</SocialPill>
+				<SocialPill href="https://discord.com/users/1310734588594753577">
+					<DiscordIcon class="size-4 md:size-6" />
+					@darth.3216
 				</SocialPill>
 				<SocialPill href="mailto:kevinfernandez0193@gmail.com">
 					<MailIcon class="size-4 md:size-6" />
@@ -37,8 +38,14 @@ import Projects from '../components/Projects.astro';
 			</h2>
 			<Projects />
 		</SectionContainer>
+		<SectionContainer id="precios">
+			<h3 class="text-3xl font-semibold md:my-6 my-6 flex gap-x-3 items-center">
+				<PriceIcon />
+				Precios
+			</h3>
+			<section class="flex gap-4 mb-5">
+				<Price />
+			</section>
+		</SectionContainer>
 	</main>
 </Layout>
-
-<style>
-</style>

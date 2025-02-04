@@ -1,79 +1,93 @@
 ---
-import NextJS from './icons/NextJS.astro';
-import Tailwind from './icons/Tailwind.astro';
-import React from './icons/React.astro';
-import GitHub from './icons/GitHub.astro';
-import Vercel from './icons/Vercel.astro';
+import NextJS from "./icons/NextJS.astro";
+import Tailwind from "./icons/Tailwind.astro";
+import React from "./icons/React.astro";
+import Firebase from "./icons/Firebase.astro";
 const TAGS = {
-    NEXT: {
-        name: 'Next.JS',
-        class: 'bg-black text-white',
-        icon: NextJS,
-    },
-    TAILWIND: {
-        name: 'Tailwind',
-        class: 'bg-[#003159] text-white',
-        icon: Tailwind,
-    },
-    REACT: {
-        name: 'React',
-        class: 'bg-black text-white',
-        icon: React,
-    },
-    VERCEL: {
-        name: 'Vercel',
-        class: 'bg-black text-white',
-        icon: Vercel,
-    }
-}
+  NEXT: {
+    name: "Next.JS",
+    class: "bg-black text-white",
+    icon: NextJS,
+  },
+  TAILWIND: {
+    name: "Tailwind",
+    class: "bg-[#003159] text-white",
+    icon: Tailwind,
+  },
+  REACT: {
+    name: "React",
+    class: "bg-[#2D8680] text-white",
+    icon: React,
+  },
+  FIREBASE: {
+    name: "Firebase",
+    class: "bg-white text-gray-600",
+    icon: Firebase,
+  }
+};
 const PROJECTS = [
-    {
-        title: 'Olympus Scanlation Clone',
-        description: 'Este fue un proyecto hecho solamente para demostrar mis conocimientos y habilidades en la creación de paginas web del estilo manhwa/manhua y novelas. ',
-        link: 'https://olympus-scanlation.vercel.app/',
-        github: 'https://github.com/darth016/Olympus-Scanlation',
-        image: '/projects/olympus.webp',
-        tags: [TAGS.NEXT, TAGS.TAILWIND, TAGS.REACT],
-        tags2: [TAGS.VERCEL],
-    },
-    {
-        title: 'AnimeFLV Clone',
-        description: 'Este sitio web es un Clone de la pagina AnimeFLV, en diseño es igual. Sin embargo en cuestion de rendimiento, backend, Responsive Design, etc.',
-        link: 'https://clone-anime-flv.vercel.app/',
-        github: 'https://github.com/darth016/Clone-AnimeFLV',
-        image: '/projects/animeflv.webp',
-        tags: [TAGS.NEXT, TAGS.TAILWIND, TAGS.REACT],
-        tags2: [TAGS.VERCEL],
-    }
-]
+  {
+    title: "Olympus Scanlation Clone",
+    description:
+        "Plataforma diseñada para visualizar y gestionar series de manhwas. Incluye funcionalidad para subir nuevas series directamente desde la web, facilitando la gestión y expansión del contenido. ",
+    link: "https://olympus-scanlation.vercel.app/",
+    github: "https://github.com/darth016/Olympus-Scanlation",
+    image: "/projects/olympus.webp",
+    tags: [TAGS.NEXT, TAGS.TAILWIND, TAGS.REACT, TAGS.FIREBASE],
+  },
+  {
+    title: "AnimeFLV Clone",
+    description:
+      "Plataforma para ver animes basada en el diseño de AnimeFLV, pero con mejoras significativas en rendimiento y funcionalidad. Construida desde cero, ofrece una experiencia optimizada y una arquitectura backend personalizada",
+    link: "https://clone-anime-flv.vercel.app/",
+    github: "https://github.com/darth016/Clone-AnimeFLV",
+    image: "/projects/AnimeFLV.jpg",
+    tags: [TAGS.NEXT, TAGS.TAILWIND, TAGS.REACT, TAGS.FIREBASE],
+  },
+  {
+    title: "YugenManga Clone",
+    description:
+      "Este proyecto es un clon inspirado en YugenMangas/Ikigai Mangas, diseñado desde cero con un enfoque en rendimiento, optimización y una arquitectura backend renovada. Aunque visualmente similar al original, ofrece una experiencia más rápida y eficiente.",
+    link: "https://yugen-mangas.vercel.app/",
+    github: "https://github.com/darth016/YugenMangas",
+    image: "/projects/Yugen-Mangas.jpg",
+    tags: [TAGS.NEXT, TAGS.TAILWIND, TAGS.REACT, TAGS.FIREBASE],
+  },
+];
 ---
 
 {
-    PROJECTS.map(({ image, title, description, tags, tags2, link }) => (
-        <article class="mt-7">
-            <h3 class="text-2xl font-semibold text-yellow-200 mb-2">{title}</h3>
-            <p class="text-lg mb-4 text-pretty">{description}</p>
-            <ul class="flex gap-x-2 flex-row mb-2">
-                {tags.map(tag => (
-                    <li>
-                        <span class={`flex gap-x-2 rounded-full text-sm ${tag.class} py-2 px-1 `}>
-                            <tag.icon class="size-4" />
-                            {tag.name}
-                        </span>
-                    </li>
-                ))}
-                {tags2.map(tag => (
-                    <li class="">
-                        <div class={`flex gap-x-2 rounded-full text-sm ${tag.class} py-2 px-1 `}>
-                            <tag.icon class="size-4" />
-                            {tag.name}
-                        </div>
-                    </li>
-                ))}
-            </ul>
-            <a href={link}>
-                <img class="rounded hover:scale-[10px] shadow-xl shadow-white/10" src={image} alt={`Captura de pantalla del proyecto ${image}`} />
-            </a>
-        </article>
-    ))
+  PROJECTS.map(({ image, title, description, tags, link }) => (
+    <section class="container mx-auto px-4">
+        {
+            <article class="mt-7 flex flex-col md:flex-row gap-6">
+                <div class="md:w-1/2">
+                    <a href={link}>
+                        <img
+                            class="rounded hover:scale-[1.05] h-40 transition-transform duration-300 shadow-xl shadow-white/10 w-full"
+                            src={image}
+                            alt={`Captura de pantalla del proyecto ${title}`}
+                        />
+                    </a>
+                </div>
+                <div class="md:w-2/3">
+                    <a href={link} class="text-2xl font-semibold text-yellow-200 mb-2">{title}</a>
+                    <p class="text-lg mb-4 text-pretty">{description}</p>
+                    <ul class="flex flex-wrap gap-2 mb-2">
+                    {tags.map((tag) => (
+                        <li>
+                            <span
+                                class={`flex items-center gap-x-2 rounded-full text-sm ${tag.class} p-2`}
+                            >
+                                <tag.icon class="size-4" />
+                                {tag.name}
+                            </span>
+                        </li>
+                    ))}
+                    </ul>
+                </div>
+            </article>
+        }
+    </section>
+  ))
 }
